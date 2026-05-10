@@ -20,12 +20,12 @@ export default function Register() {
     e.preventDefault();
     setLoading(true);
 
-    // 1. Supabase Auth Kaydı
-    const { data, error } = await supabase.auth.signUp({
+    // Vercel hatasını önlemek için 'data' değişkenini çıkardık
+    const { error } = await supabase.auth.signUp({
       email,
       password,
       options: {
-        data: { company_name: company }, // Şirket adını metadata olarak kaydediyoruz
+        data: { company_name: company },
       },
     });
 
@@ -48,7 +48,7 @@ export default function Register() {
           >
             VYNO
           </Link>
-          <h1 className="text-2xl font-black uppercase tracking-tight">
+          <h1 className="text-2xl font-black uppercase tracking-tight text-white">
             Deploy Sandbox
           </h1>
           <p className="text-xs text-neutral-500 mt-2">
@@ -66,7 +66,7 @@ export default function Register() {
               required
               value={company}
               onChange={(e) => setCompany(e.target.value)}
-              className="w-full bg-neutral-900 border border-neutral-800 px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 transition-colors"
+              className="w-full bg-neutral-900 border border-neutral-800 px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 transition-colors text-white"
               placeholder="e.g. BMW Group"
             />
           </div>
@@ -79,7 +79,7 @@ export default function Register() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-neutral-900 border border-neutral-800 px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 transition-colors"
+              className="w-full bg-neutral-900 border border-neutral-800 px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 transition-colors text-white"
               placeholder="engineer@company.com"
             />
           </div>
@@ -92,7 +92,7 @@ export default function Register() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-neutral-900 border border-neutral-800 px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 transition-colors"
+              className="w-full bg-neutral-900 border border-neutral-800 px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 transition-colors text-white"
               placeholder="••••••••"
             />
           </div>
@@ -107,8 +107,11 @@ export default function Register() {
         </form>
 
         <p className="text-center text-xs text-neutral-500 mt-6">
-          Already have a tenant?{" "}
-          <Link href="/login" className="text-white hover:text-emerald-500">
+          {`Already have a tenant? `}
+          <Link
+            href="/login"
+            className="text-white hover:text-emerald-500 transition-colors"
+          >
             Login here
           </Link>
         </p>
