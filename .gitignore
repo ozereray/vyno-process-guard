@@ -1,0 +1,10 @@
+# Environments (Şifreler ve API Anahtarları)
+.env
+.env.local
+backend/.env
+frontend/.env.local
+
+# Cache ve Bağımlılıklar (Gereksiz ağırlıklar)
+__pycache__/
+node_modules/
+.next/
