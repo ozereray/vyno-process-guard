@@ -94,7 +94,9 @@ export default function Dashboard() {
   const handleForceScan = async () => {
     setIsScanning(true);
     try {
-      await fetch("http://localhost:8000/force-scan", { method: "POST" });
+      await fetch("https://vyno-api.onrender.com/force-scan", {
+        method: "POST",
+      });
     } catch (error) {
       console.error("Scan error:", error);
     } finally {
